@@ -52,7 +52,7 @@ export class ErrorBoundary extends Component<Props, State> {
   };
 
   handleGoHome = () => {
-    window.location.href = '/';
+    window.location.href = import.meta.env.BASE_URL;
   };
 
   render() {
@@ -84,22 +84,20 @@ export class ErrorBoundary extends Component<Props, State> {
                 問題が解決しない場合は、ページを再読み込みしてください。
               </p>
 
-              {/* Error details in development */}
-              {process.env.NODE_ENV === 'development' && (
-                <details className="mb-6 text-left">
-                  <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
-                    エラーの詳細
-                  </summary>
-                  <div className="mt-2 p-3 bg-gray-100 rounded text-xs overflow-auto">
-                    <p className="font-semibold text-red-600">{this.state.error.message}</p>
-                    {this.state.errorInfo && (
-                      <pre className="mt-2 text-gray-700">
-                        {this.state.errorInfo.componentStack}
-                      </pre>
-                    )}
-                  </div>
-                </details>
-              )}
+              {/* Error details */}
+              <details className="mb-6 text-left">
+                <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
+                  エラーの詳細
+                </summary>
+                <div className="mt-2 p-3 bg-gray-100 rounded text-xs overflow-auto">
+                  <p className="font-semibold text-red-600">{this.state.error.message}</p>
+                  {this.state.errorInfo && (
+                    <pre className="mt-2 text-gray-700">
+                      {this.state.errorInfo.componentStack}
+                    </pre>
+                  )}
+                </div>
+              </details>
 
               <div className="space-y-3">
                 <button
