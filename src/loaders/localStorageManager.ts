@@ -294,6 +294,37 @@ export class LocalStorageManager {
     });
   }
 
+  // 汎用的なget/setメソッド（他のマネージャーから使用するため）
+  get(key: string): string | null {
+    if (!this.isAvailable()) {
+      return null;
+    }
+
+    try {
+      const fullKey = this.prefix + key;
+      return localStorage.getItem(fullKey);
+    } catch (error) {
+      console.error(`Failed to get data for key: ${key}`, error);
+      return null;
+    }
+  }
+
+  set(key: string, value: string): void {
+    if (!this.isAvailable()) {
+      throw new StorageError('LocalStorage is not available');
+    }
+
+    try {
+      const fullKey = this.prefix + key;
+      localStorage.setItem(fullKey, value);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'QuotaExceededError') {
+        throw new StorageQuotaError('LocalStorage quota exceeded');
+      }
+      throw new StorageError(`Failed to save data for key: ${key}`, error);
+    }
+  }
+
   // データの修復機能
   repairData(): { repaired: string[]; failed: string[] } {
     const repaired: string[] = [];
