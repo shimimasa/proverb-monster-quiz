@@ -5,6 +5,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // Production build configuration
 export default defineConfig({
+  base: '/proverb-monster-quiz/',
   plugins: [
     react(),
     visualizer({
