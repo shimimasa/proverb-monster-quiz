@@ -137,6 +137,16 @@ export class ProgressManager {
     };
   }
 
+  // ProgressBarコンポーネント用のメソッド（エイリアス）
+  getLevelProgress(): { currentExp: number; expForNext: number; progressPercentage: number } {
+    const expInfo = this.getExperienceForNextLevel();
+    return {
+      currentExp: expInfo.current,
+      expForNext: expInfo.required,
+      progressPercentage: expInfo.percentage,
+    };
+  }
+
   checkAchievements(): Achievement[] {
     const newAchievements: Achievement[] = [];
 
