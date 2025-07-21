@@ -52,7 +52,7 @@ export class DataLoader {
   private cache: Map<string, ContentItem[]> = new Map();
   private readonly baseUrl: string;
 
-  constructor(baseUrl: string = '/data') {
+  constructor(baseUrl: string = import.meta.env.BASE_URL + 'data/') {
     this.baseUrl = baseUrl;
   }
 
@@ -79,7 +79,7 @@ export class DataLoader {
     }
 
     const fileName = this.getFileName(type);
-    const url = `${this.baseUrl}/${fileName}`;
+    const url = `${this.baseUrl}${fileName}`;
 
     try {
       // データ取得
