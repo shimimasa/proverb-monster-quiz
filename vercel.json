@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "headers": {
+        "cache-control": "public, immutable, max-age=31536000"
+      }
+    },
+    {
+      "src": "/data/(.*)",
+      "headers": {
+        "cache-control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "VITE_APP_ENV": "production"
+  },
+  "buildCommand": "npm run build:prod",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "regions": ["hnd1"],
+  "functions": {
+    "api/*": {
+      "maxDuration": 10
+    }
+  }
+}

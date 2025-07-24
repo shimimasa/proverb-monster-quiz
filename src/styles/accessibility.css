@@ -1,0 +1,182 @@
+/**
+ * アクセシビリティ対応のためのスタイル
+ */
+
+/* フォーカススタイル */
+:focus-visible {
+  outline: 3px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* スクリーンリーダー専用クラス */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ハイコントラストモード対応 */
+@media (prefers-contrast: high) {
+  .bg-blue-500 {
+    background-color: #1e40af !important;
+  }
+  
+  .bg-green-500 {
+    background-color: #166534 !important;
+  }
+  
+  .bg-red-500 {
+    background-color: #991b1b !important;
+  }
+  
+  .text-gray-600 {
+    color: #1f2937 !important;
+  }
+  
+  .text-gray-500 {
+    color: #374151 !important;
+  }
+  
+  .border-gray-300 {
+    border-color: #4b5563 !important;
+  }
+}
+
+/* モーション設定 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* キーボードナビゲーション時のフォーカスインジケーター */
+.keyboard-navigation-active button:focus,
+.keyboard-navigation-active a:focus,
+.keyboard-navigation-active input:focus,
+.keyboard-navigation-active select:focus,
+.keyboard-navigation-active textarea:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* 読みやすさのための最小フォントサイズ */
+body {
+  font-size: max(16px, 1rem);
+}
+
+/* クリック可能な要素の最小サイズ確保 */
+button,
+a,
+[role="button"] {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 選択肢ボタンの特別な扱い */
+.choice-button {
+  min-height: 60px;
+}
+
+/* テキストの読みやすさ向上 */
+p, li {
+  line-height: 1.6;
+}
+
+/* リンクのアンダーライン */
+a:not(.no-underline) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* フォームフィールドのラベル関連付け */
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* エラー表示の視認性向上 */
+.error-message {
+  color: #dc2626;
+  font-weight: 600;
+  padding: 0.5rem;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 0.375rem;
+}
+
+/* 成功表示の視認性向上 */
+.success-message {
+  color: #059669;
+  font-weight: 600;
+  padding: 0.5rem;
+  background-color: #d1fae5;
+  border: 1px solid #a7f3d0;
+  border-radius: 0.375rem;
+}
+
+/* ローディング状態の視覚的フィードバック */
+.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3B82F6;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* スキップリンク */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #3B82F6;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* アラート表示の視認性 */
+[role="alert"] {
+  font-weight: 600;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
