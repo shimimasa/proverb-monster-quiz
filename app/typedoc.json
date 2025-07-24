@@ -1,0 +1,44 @@
+{
+  "name": "ことだまモンスタークイズ APIドキュメント",
+  "entryPoints": ["./src"],
+  "entryPointStrategy": "expand",
+  "out": "./docs/api",
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/node_modules/**",
+    "**/tests/**"
+  ],
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeInternal": true,
+  "readme": "./README.md",
+  "theme": "default",
+  "hideGenerator": true,
+  "navigationLinks": {
+    "GitHub": "https://github.com/yourusername/proverb-monster-quiz",
+    "ドキュメントホーム": "../index.html"
+  },
+  "categorizeByGroup": true,
+  "defaultCategory": "その他",
+  "categoryOrder": [
+    "Core",
+    "Components",
+    "Hooks",
+    "Types",
+    "Utils",
+    "その他"
+  ],
+  "plugin": ["typedoc-plugin-markdown"],
+  "githubPages": false,
+  "disableSources": false,
+  "sort": ["source-order"],
+  "visibilityFilters": {
+    "protected": true,
+    "private": false,
+    "inherited": true,
+    "external": false
+  }
+}

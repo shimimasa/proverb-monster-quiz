@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 背景円（グラデーション） -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="bodyGradient" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" style="stop-color:#FDE68A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <circle cx="32" cy="32" r="30" fill="url(#bgGradient)"/>
+  
+  <!-- モンスターの体 -->
+  <ellipse cx="32" cy="36" rx="18" ry="16" fill="url(#bodyGradient)" stroke="#D97706" stroke-width="1.5"/>
+  
+  <!-- モンスターの目（キラキラ効果付き） -->
+  <circle cx="26" cy="32" r="5" fill="#FFFFFF"/>
+  <circle cx="38" cy="32" r="5" fill="#FFFFFF"/>
+  <circle cx="26.5" cy="32.5" r="3" fill="#1F2937"/>
+  <circle cx="38.5" cy="32.5" r="3" fill="#1F2937"/>
+  <circle cx="27.5" cy="31" r="1.5" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="39.5" cy="31" r="1.5" fill="#FFFFFF" opacity="0.9"/>
+  
+  <!-- モンスターの口（笑顔） -->
+  <path d="M 24 38 Q 32 42 40 38" stroke="#1F2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- 吹き出し -->
+  <path d="M 10 12 L 10 8 Q 10 6 12 6 L 28 6 Q 30 6 30 8 L 30 12 Q 30 14 28 14 L 18 14 L 16 17 L 16 14 L 12 14 Q 10 14 10 12 Z" fill="#FFFFFF" stroke="#4B5563" stroke-width="0.8"/>
+  
+  <!-- ことだまの文字 -->
+  <text x="20" y="11.5" font-family="'Hiragino Sans', 'Meiryo', sans-serif" font-size="6" fill="#1F2937" text-anchor="middle" font-weight="bold">言霊</text>
+  
+  <!-- 装飾的な星 -->
+  <path d="M 46 16 L 47 18 L 49 18 L 47.5 19.5 L 48.5 21.5 L 46 20 L 43.5 21.5 L 44.5 19.5 L 43 18 L 45 18 Z" fill="#FCD34D" opacity="0.8"/>
+  <path d="M 12 44 L 12.5 45 L 13.5 45 L 12.75 45.75 L 13.25 46.75 L 12 46 L 10.75 46.75 L 11.25 45.75 L 10.5 45 L 11.5 45 Z" fill="#FCD34D" opacity="0.8"/>
+  
+  <!-- 小さなアクセント -->
+  <circle cx="20" cy="28" r="1" fill="#FDE68A" opacity="0.6"/>
+  <circle cx="44" cy="34" r="1" fill="#FDE68A" opacity="0.6"/>
+</svg>
